@@ -1,0 +1,16 @@
+services:
+  frontend:
+    build: ./frontend
+    image: zaheer00901/frontend-app:latest
+    environment:
+      - REACT_APP_API_URL=http://backend:5000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    image: zaheer00901/backend-app:latest
+    ports:
+      - "8000:5000"
